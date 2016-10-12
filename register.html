@@ -1,0 +1,24 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="css/estiloLogin.css">
+
+</head>
+<div class="login-page">
+<h1 style="text-align=center">Registro</h1>
+    <div class="form">
+	    <form class="login-form" name="formRegister">
+	      <input type="text" placeholder="Nombre de usuario" name="nombre" ng-model="usuario.nombre" required/>
+	      <span style="color:red" ng-show="formRegister.nombre.$invalid && formRegister.nombre.$touched">*Campo obligatorio</span>
+	      <input type="mail" name="correo" ng-model="usuario.correo" placeholder="Ingrese su email" required/>
+	      <span style="color:red" ng-show="formRegister.correo.$invalid && formRegister.correo.$touched">*Campo obligatorio</span>
+	      <input type="password" name="clave" ng-model="usuario.clave" placeholder="Ingrese clave" required/>
+	      <span style="color:red" ng-show="formRegister.clave.$invalid && formRegister.clave.$touched">*Campo obligatorio</span>	      
+	      <input type="password" name="claveDos" ng-model="claveDos" placeholder="Reingrese clave" required/>
+	      <span style="color:red" ng-show="formRegister.claveDos.$invalid && formRegister.claveDos.$touched">*Campo obligatorio</span>
+	      <br>
+	      <span style="color:red" ng-show="usuario.clave!=claveDos && (formRegister.clave.$touched &&  formRegister.claveDos.$touched)">*Las claves no coinciden</span>
+	      <button>Crear</button>
+	      <p class="message">¿Ya posee cuenta? <a ui-sref="Login">Ingresar</a></p>
+	    </form>
+  </div>
+</div>
+<script type="text/javascript" src="js/index.js"></script>
