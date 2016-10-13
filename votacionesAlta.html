@@ -1,35 +1,36 @@
 <div class="container">
 		<div class="page-header">
-			<center> <h1>Datos {{DatoTest}}</h1>   </center>     
+			<center> <h1>Alta de votante</h1>   </center>     
 		</div>
 		<div class="CajaInicio animated bounceInRight">
-			<h1> <!--?php echo $titulo; ?-->titulo </h1>
-
+			<h1>DATOS DE PERSONA</h1>
+			<br>
 			<form id="formAlta" name="formAlta" enctype="multipart/form-data" >
-				<h1>Estado de Formulario</h1>
-
-				<input type="text" name="apellido" ng-model="persona.apellido" placeholder="ingrese apellido" value="" required />
-				<span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*
-				</span>
-				<input type="text" name="nombre" ng-model="persona.nombre" placeholder="ingrese nombre" value=""
-				required  /> <span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
-				<input type="email" name="correo" ng-model="persona.correo" placeholder="ingrese correo" value=""  required   /> 
-				<span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
-
-				<input type="password" name="correo" ng-model="persona.password" placeholder="ingrese contraseña" value="" required />
-				<input type="password" name="coreoCopia" ng-model="persona.passwordCopia" placeholder="ingrese nueva contraseña" value="" required/>
-				<p style='color: black;'>*El DNI no se puede modificar.</p> ": "" ; ?>
 				
-				<input type="hidden" name="idOculto" id="id" value="" />
-				<!--
-				<input type="file" name="foto" />
 
+				<input type="number" name="dni" ng-model="votacion.dni" placeholder="Ingrese DNI" value="" required />
+				<span id="lblApellido" ng-show="formAlta.dni.$invalid" style="color:red">*Campo requerido<br>
+				</span><br>
+					<fieldset style="width:150px">
+						<legend>Sexo:</legend>
+							<input type="radio" ng-model="votabte.sexo" name="sexo" value="M">Masculino<br><br>
+							<input type="radio" ng-model="votante.sexo" name="sexo" value="F">Femenino<br><br>
+							<span style="color:red" ng-show="votante.sexo == null">*Debe elegir una opción</span>
+					</fieldset>
+					<br>
+				<div style="width:300px;color:black">
+					<h4>Ingrese de fecha votación:</h4>
+					<input type="date" style="width:170px" name="fecha_votacion" ng-model="votacion.fecha_votacion" required> 
+					<select name="partido_politico" ng-model="votacion.partido_politico">
+						<option value="PRO">Propuesta Republicana</option>
+						<option value="FPV">Frente Para la Victoria</option>
+						<option value="UCR">Unión Cívica Radical</option>
+					</select>
+					
+					<input type="hidden" name="idOculto" id="id" value="" />
+				</div>
 
-				<img  src="fotos/pordefecto.png" class="fotoform" id="foto"/>
-				<p style="  color: black;">*La foto se actualiza al guardar.</p>
-				-->
-
-				<a class="btn btn-info " ng-click="Guardar()" name="guardar" ng-disabled="(persona.password != persona.passwordCopia) || FormIngreso.$invalid"  ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
+				<a class="btn btn-info " ng-click="Guardar()" name="guardar" ng-disabled="formAlta.$invalid"  ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
 					
 				<input type="hidden" value="" id="idParaModificar" name="agregar" />
 				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
